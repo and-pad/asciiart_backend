@@ -32,7 +32,7 @@ def parse_positive_int(value, field_name):
 class asciiJpg(APIView):
     permission_classes = [AllowAny]
 
-    def post(self, request):
+    def post(self, request):       
         image = request.FILES.get("image")
 
         if not image:
@@ -62,6 +62,8 @@ class asciiJpg(APIView):
             for chunk in image.chunks():
                 file.write(chunk)
 
+        import traceback
+
         try:
             html = asciijpg().convert(
                 image_path=image_path,
@@ -69,10 +71,17 @@ class asciiJpg(APIView):
                 height=height,
                 colors=colors,
             )
-        except Exception:
-            os.remove(image_path)
+        except Exception as e:
+            print(traceback.format_exc())
+
+            if os.path.exists(image_path):
+                os.remove(image_path)
+
             return Response(
-                {"error": "No fue posible convertir la imagen a ASCII"},
+                {
+                    "error": str(e),
+                    "traceback": traceback.format_exc()
+                },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
