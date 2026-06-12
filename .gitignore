@@ -31,7 +31,8 @@ settings.py
 frontendasciiart/node_modules/
 frontendasciiart/build/
 frontendasciiart/dist/
-
+# Frontend React
+frontendasciiart/
 # Dependencias JS
 npm-debug.log*
 yarn-debug.log*
