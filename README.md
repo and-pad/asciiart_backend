@@ -52,3 +52,11 @@ python manage.py runserver
 * REST API built with Django
 * Uses jp2a for image processing
 * Easy integration with frontend applications
+
+* ## Frontend
+
+A React frontend is available for this project.
+
+Frontend repository:
+
+https://github.com/and-pad/asciiart_frontend
