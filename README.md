@@ -23,7 +23,7 @@ sudo pacman -S jp2a
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/and-pad/asciiart_backend.git
 cd asciiart
 ```
 
